@@ -8,7 +8,7 @@ import networkx as nx
 
 # Definitons
 
-sys.path.append('./modules')
+sys.path.append('./modules/')
 fl = glob.glob('modules/*.py')
 classes = {}
 
@@ -24,11 +24,6 @@ for name, obj in inspect.getmembers(sys.modules[__name__]):
 
 # Initializing graph
 G = nx.DiGraph()
-for x in classes.keys():
-    G.add_node(classes[x]().inp)
-    G.add_node(classes[x]().out)
-
-# Adding modules to graph
 for x in classes.keys():
     if type(classes[x]().inp) == list:
         for inp in classes[x]().inp:
@@ -52,6 +47,6 @@ def create_program_stack(inp, out, val):
     for x in xrange(len(shp)-1):
         i = shp[x]
         o = shp[x+1]
-        stack.append(G.get_edge_data(i,o)['weight'])
+        stack.append(G[i][o]['weight'])
     # Logging - print stack
     return execute(stack, val)

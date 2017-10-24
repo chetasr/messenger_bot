@@ -7,4 +7,3 @@ A bot that lives in Messenger and helps me out
 - [ ] Improve translation plugin
 - [ ] Create flight status plugin
 - [ ] Create train status plugin
-- [ ] Get news from location
