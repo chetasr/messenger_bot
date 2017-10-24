@@ -27,7 +27,7 @@ def do(text):
     # Logging - print response
     intent = response['entities']['intent'][0]['value']
     entities = extract_entities(response)
-    # Logging - print entities, intent
+    print entities, intent
     t = str(intent)
     f = str(entities.keys()[0])
     return dynamicgen.create_program_stack(f, t, entities)[t]
