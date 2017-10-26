@@ -12,12 +12,14 @@ app = Flask(__name__)
 VERIFY_TOKEN = "a"
 update_id = None
 
+
 def craft_message(user_id, msg):
     for x in msg:
         if type(x) is list:
             bot.send_generic_message(user_id, x)
         else:
             bot.send_text_message(user_id, x)
+
 
 @app.route("/", methods=['GET', 'POST'])
 def hello():
@@ -35,12 +37,14 @@ def hello():
                 if x.get('message'):
                     if x['message'].get('text'):
                         # Logging - print x
-                        craft_message(x['sender']['id'], jarvis.do(x['message']['text']))
+                        craft_message(x['sender']['id'],
+                                      jarvis.do(x['message']['text']))
                 else:
                     pass
         return "Success"
 
 # Booting server
+
 
 if __name__ == '__main__':
     app.run()

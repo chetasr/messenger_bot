@@ -7,6 +7,7 @@ import random
 curses = ['Hey! I don\'t think I deserve that',
           'I\'d never speak to you that way']
 
+
 class returnCurse:
     # Replies for cursing
     def __init__(self):

@@ -9,6 +9,7 @@ greetings = ['Hello there!',
              'Hello!',
              'Greetings!']
 
+
 class returnGreeting:
     # Greet the user
     def __init__(self):

@@ -2,10 +2,12 @@
 
 from wit import Wit
 import simplejson as json
-import random, os
+import random
+import os
 from engine import dynamicgen
 
 # Entity processing
+
 
 def extract_entities(response):
     # Extract entites from NLP response
@@ -21,6 +23,7 @@ def extract_entities(response):
     return entities
 
 # Main stuff
+
 
 def do(text, logging=False):
     # Process input and act accordingly

@@ -1,8 +1,10 @@
 # Import essentials
 
-import forecastio, os
+import forecastio
+import os
 
 # Definitions
+
 
 class weatherFromCoordinates:
     # Get weather of a particular coordinate
@@ -11,6 +13,7 @@ class weatherFromCoordinates:
         self.out = 'weather'
 
     def do(self, entities):
-        forecast = forecastio.load_forecast(os.environ['FORECASTIO_KEY'], entities['coords'].latitude, entities['coords'].longitude)
+        forecast = forecastio.load_forecast(
+            os.environ['FORECASTIO_KEY'], entities['coords'].latitude, entities['coords'].longitude)
         entities['weather'] = [forecast.hourly().summary]
         return entities

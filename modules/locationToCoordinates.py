@@ -4,6 +4,7 @@ import geopy.geocoders
 
 # Definitions
 
+
 class locationToCoordinates:
     # To get coordinates of a location string
     def __init__(self):

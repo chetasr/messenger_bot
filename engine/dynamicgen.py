@@ -1,7 +1,8 @@
 # Importing essentials
 
 import sys
-import inspect, os
+import inspect
+import os
 import random
 import glob
 import networkx as nx
@@ -15,8 +16,8 @@ classes = {}
 # Find and list all modules
 for i in range(len(fl)):
     fl[i] = fl[i].split('/')[1]
-    fl[i] = fl[i][0:(len(fl[i])-3)]
-    classes[fl[i]] = (getattr(__import__(fl[i]),fl[i]))
+    fl[i] = fl[i][0:(len(fl[i]) - 3)]
+    classes[fl[i]] = (getattr(__import__(fl[i]), fl[i]))
 
 for name, obj in inspect.getmembers(sys.modules[__name__]):
     if inspect.isclass(obj):
@@ -33,6 +34,7 @@ for x in classes.keys():
 
 # Main stuff
 
+
 def execute(stack, val):
     # Execute the stack
     for x in stack:
@@ -40,13 +42,14 @@ def execute(stack, val):
         val = tmp.do(val)
     return val
 
+
 def create_program_stack(inp, out, val, logging=False):
     # Improve stacker function
     shp = nx.shortest_path(G, inp, out)
     stack = []
-    for x in xrange(len(shp)-1):
+    for x in xrange(len(shp) - 1):
         i = shp[x]
-        o = shp[x+1]
+        o = shp[x + 1]
         stack.append(G[i][o]['weight'])
     if logging:
         print stack
