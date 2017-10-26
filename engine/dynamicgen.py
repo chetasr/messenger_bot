@@ -40,7 +40,7 @@ def execute(stack, val):
         val = tmp.do(val)
     return val
 
-def create_program_stack(inp, out, val):
+def create_program_stack(inp, out, val, logging=False):
     # Improve stacker function
     shp = nx.shortest_path(G, inp, out)
     stack = []
@@ -48,5 +48,6 @@ def create_program_stack(inp, out, val):
         i = shp[x]
         o = shp[x+1]
         stack.append(G[i][o]['weight'])
-    # Logging - print stack
+    if logging:
+        print stack
     return execute(stack, val)

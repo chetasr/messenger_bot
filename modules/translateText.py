@@ -1,6 +1,6 @@
 # Import essentials
 
-from translate import translator
+from googletrans import Translator
 
 # Definitions
 
@@ -11,6 +11,6 @@ class translateText:
         self.out = 'translation'
 
     def do(self, entities):
-        #! TO DO !#
-        entities['translation'] = [translator('en', entities['language'], entities['phrase_to_translate'])[0][0][0]]
+        translator = Translator()
+        entities['translation'] = [translator.translate(entities['phrase_to_translate'], dest=entities['language']).text]
         return entities

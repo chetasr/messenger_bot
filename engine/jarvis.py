@@ -14,20 +14,24 @@ def extract_entities(response):
         if x == 'intent':
             pass
         else:
+            if 'suggested' in response['entities'][x][0].keys():
+                continue
             entities[x] = response['entities'][x][0]['value']
 
     return entities
 
 # Main stuff
 
-def do(text):
+def do(text, logging=False):
     # Process input and act accordingly
     witClient = Wit(access_token=os.environ['WIT_ACCESS_TOKEN'])
     response = witClient.message(text)
-    # Logging - print response
+    if logging:
+        print response
     intent = response['entities']['intent'][0]['value']
     entities = extract_entities(response)
-    print entities, intent
+    if logging:
+        print entities, intent
     t = str(intent)
     f = str(entities.keys()[0])
-    return dynamicgen.create_program_stack(f, t, entities)[t]
+    return dynamicgen.create_program_stack(f, t, entities, logging)[t]

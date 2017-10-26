@@ -12,7 +12,7 @@ greetings = ['Hello there!',
 class returnGreeting:
     # Greet the user
     def __init__(self):
-        self.inp = 'greeting'
+        self.inp = 'greetings'
         self.out = 'greet'
 
     def do(self, entities):
