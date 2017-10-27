@@ -14,7 +14,7 @@ from pymessenger import Element
 class getNewsHeadlines:
     # Get news headlines from various news sources
     def __init__(self):
-        self.inp = ['news_sources', 'location', 'datetime']
+        self.inp = 'news_sources'
         self.out = 'news'
 
     def do(self, entities):
